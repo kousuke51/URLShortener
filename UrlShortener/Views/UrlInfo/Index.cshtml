@@ -1,0 +1,42 @@
+﻿@model UrlInfo
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    @Html.ActionLink("Go to URL Listing", "URLListing")
+</p>
+
+<h1>Custom URL Shortener</h1>
+
+@using (Html.BeginForm("Create", "UrlInfo", FormMethod.Post))
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Please enter the URL you wish to shorten
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>
+                    @Html.TextBoxFor(model => model.LongUrl)
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit Url" id="btnSubmit" /></td>
+            </tr>
+            @if (Model.ShortUrl != null) {
+             <tr>
+                <td>
+                    <span><b>Your short Url is: </b><a href="@Model.ShortUrl">@Model.ShortUrl</a></span>
+                </td>
+            </tr> }
+            
+        </tbody>
+    </table>
+}

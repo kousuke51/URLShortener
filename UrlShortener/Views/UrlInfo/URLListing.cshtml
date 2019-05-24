@@ -1,0 +1,39 @@
+﻿@model IEnumerable<UrlInfo>
+
+@{
+    ViewData["Title"] = "URL Listing";
+}
+<p>
+    @Html.ActionLink("Return to URL Shortener", "Index")
+</p>
+<h1>Shortened URL Listing</h1>
+
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Long Url</th>
+                <th>Short Url</th>
+                <th>Expiration Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.LongUrl
+                    </td>
+                    <td>
+                        @item.ShortUrl
+                    </td>
+                    <td>
+                        @item.ExpirationDate.ToString("MM/dd/yyyy")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
