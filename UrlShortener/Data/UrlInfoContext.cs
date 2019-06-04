@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,10 @@ using UrlShortener.Models;
 
 namespace UrlShortener.Data
 {
+    //public class UrlInfoContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     public class UrlInfoContext : DbContext
     {
+        
         public UrlInfoContext(DbContextOptions<UrlInfoContext> options) : base(options)
         {
         }

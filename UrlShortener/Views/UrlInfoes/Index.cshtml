@@ -1,0 +1,65 @@
+﻿@model IEnumerable<UrlShortener.Models.UrlInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LongUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Suffix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpirationDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LongUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suffix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UrlInfoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UrlInfoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UrlInfoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

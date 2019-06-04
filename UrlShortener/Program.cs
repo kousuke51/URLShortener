@@ -21,6 +21,7 @@ namespace UrlShortener
                 {
                     var context = services.GetRequiredService<UrlInfoContext>();
                     context.Database.EnsureCreated();
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
